@@ -9,7 +9,7 @@ import numpy as np
 import time
 
 
-####################### config ####################################################
+####################### configuration ####################################################
 options = webdriver.ChromeOptions()
 PATH = Service("C:\Program Files (x86)\chromedriver.exe")    # driver
 options.add_argument('--lang=en-UK')                         # Set the language to English
