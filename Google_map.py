@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 from fpdf import FPDF
 import numpy as np
 import time
-#
+
 
 ####################### configuration ####################################################
 options = webdriver.ChromeOptions()
