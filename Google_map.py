@@ -1,8 +1,10 @@
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager 
 from selenium.webdriver.common.by import By
 from fpdf import FPDF
 import numpy as np
@@ -11,9 +13,11 @@ import time
 
 ####################### configuration ####################################################
 options = webdriver.ChromeOptions()
-PATH = Service("C:\Program Files (x86)\chromedriver.exe")    # driver
-options.add_argument('--lang=en-UK')                         # Set the language to English
-driver = webdriver.Chrome(service=PATH, options=options)
+# PATH = Service("C:\Program Files (x86)\chromedriver.exe")    # driver (for windows users)
+# options.add_argument('--lang=en-Uk')                         # Set the language to English (for windows users)
+options.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_UK'})
+# driver = webdriver.Chrome(service=PATH, options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 wait = WebDriverWait(driver, 10)
 driver.get("https://www.google.com/maps")
 time.sleep(0.5)
